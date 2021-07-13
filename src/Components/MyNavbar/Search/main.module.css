@@ -1,0 +1,9 @@
+.img {
+  background-image: url('https://safebytes.com/wp-content/uploads/2017/03/warning_exclamation.png');
+  height: 500px;
+  width: 500px;
+}
+.h1 {
+  text-align: center;
+  margin: -20px 0 30px 0;
+}

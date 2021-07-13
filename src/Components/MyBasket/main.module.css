@@ -1,0 +1,35 @@
+.basket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.img {
+  background-image: url('https://icon-library.com/images/cart-icon-png/cart-icon-png-14.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  height: 400px;
+}
+.h1 {
+  text-align: center;
+  margin-top: -30px;
+  color: red;
+}
+.val {
+  font-weight: bold;
+}
+.check {
+  margin: 10px 5px 0px 12px;
+}
+
+.myInp {
+  width: 465px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #e2e6e9 !important;
+}
+.la {
+  margin-top: 4px;
+}
