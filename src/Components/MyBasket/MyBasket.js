@@ -44,9 +44,10 @@ export default function MyBasket() {
   const InpName = (e) => setInpName(e);
   const InpAddress = (e) => setInpAddress(e);
   const InpNumber = (e) => setInpNumber(e);
+  const mostCheck = () => setMyState(true)
   const addCheck = (e, v) => {
     setCheck(p => {
-      if (e === true) {
+      if (e) {
         return [...p, v]
       } else {
         return p.filter((b) => b.idMeal !== v.idMeal)
@@ -54,25 +55,22 @@ export default function MyBasket() {
     })
   }
 
-  console.log(check);
-
-
   const Send = () => {
     axios.post(`https://api.telegram.org/bot1720068505:AAGilIHoTeeuQAmhDw9nzPGEaXmbB9K6n8E/sendMessage`, {
       parse_mode: 'HTML',
-      text: `<b>NEW ORDER</b>\n\nFull name: ${inpName} \nAddress: ${inpNumber} \nPhone number: ${inpAddress} \n${check.map((v) => `\n${v.strMeal}`)}`,
+      text: `<b>NEW ORDER</b>\n\nFull name: ${inpName} \nPhone number: ${inpNumber} \nAddress: ${inpAddress} \n${check.map((v) => `\n${v.strMeal}`)}`,
       chat_id: chat,
     })
-    setShow(false)
     if (myState) {
-      MyContext.setBasket(p => check.filter((v) => p.idMeal !== v.idMeal))
+      MyContext.setBasket(p => p.filter((v) => !check.find(g => g.idMeal === v.idMeal))) 
+      // MyContext.setBasket(p => check.filter((v) => p.idMeal !== v.idMeal))      
     }
+    alert('Order sent successfully')
+    setShow(false) 
   }
 
+  console.log(check);
 
-  const mostCheck = () => setMyState(true)
-
-  console.log(myState);
 
   return (
     <>

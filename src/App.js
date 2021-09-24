@@ -30,15 +30,6 @@ export default function App() {
       })
   }, []);
 
-  // const toggle = (v) => {
-  //   const i = JSON.parse(localStorage.getItem('Basket')) || [];
-  //   if (!i.find(g => g.idMeal === v.idMeal)) {
-  //     localStorage.setItem('Basket', JSON.stringify([...i, v]));
-  //   } else {
-  //     localStorage.setItem('Basket', JSON.stringify(i.filter(id => id.idMeal !== v.idMeal)));
-  //   }
-  // }
-
   const Add = (v) => setBasket([...basket, v])
   const Delete = (b) => setBasket(basket.filter((v) => v !== b))
   const Toggle = (n) => basket.includes(n) ? Delete(n) : Add(n)
